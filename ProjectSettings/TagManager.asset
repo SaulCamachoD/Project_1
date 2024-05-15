@@ -6,6 +6,10 @@ TagManager:
   tags:
   - MainMenu
   - ManagerMenu
+  - StartPanel
+  - SettingsPanel
+  - CreditsPanel
+  - ExitPanel
   layers:
   - Default
   - TransparentFX
