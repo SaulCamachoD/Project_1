@@ -44,7 +44,7 @@ public class HudManager : MonoBehaviour
         if (controllerparameter == 0)
         {
             PauseMenu.SetActive(false);
-            Time.timeScale = 0f;
+            Time.timeScale = 1.0f;
         }
         
     }
@@ -53,7 +53,7 @@ public class HudManager : MonoBehaviour
     {
         PauseMenu.SetActive(true);
         controllerp.InicializedCP();
-        Time.timeScale = 1.0f;
+        Time.timeScale = 0.0f;
     }
 
     public void ActivationGameOverMenu()
@@ -72,7 +72,7 @@ public class HudManager : MonoBehaviour
             
             if (controllerparameter == 1)
             {
-            SceneManager.LoadScene("MainScene");
-        }
+                SceneManager.LoadScene("MainScene");
+            }
     }
 }
