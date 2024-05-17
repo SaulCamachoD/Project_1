@@ -10,6 +10,9 @@ TagManager:
   - SettingsPanel
   - CreditsPanel
   - ExitPanel
+  - PauseMenu
+  - GameOverMenu
+  - HudManager
   layers:
   - Default
   - TransparentFX
