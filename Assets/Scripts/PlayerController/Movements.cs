@@ -9,7 +9,6 @@ public class Movements : MonoBehaviour
     private float _mX;
     private float _mZ;
     private float _VR;
-    private float currentVelocity;
 
     void Start()
     {
