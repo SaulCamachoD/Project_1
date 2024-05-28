@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float health = 100f;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void Damage(float damage)
     {
-        
+        health -= damage;
+    }
+
+    public void ResetHealth()
+    {
+        health = 100f;
     }
 }
+

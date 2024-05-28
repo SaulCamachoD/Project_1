@@ -3,19 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class HudManager : MonoBehaviour
 {
-    GameObject PauseMenu;
+
     GameObject GameOverMenu;
-    Controller_P controllerp;
     Controller_GO controller_Go;
     void Start()
     {
         controller_Go = GameObject.FindGameObjectWithTag("GameOverMenu").GetComponent<Controller_GO>();
-        controllerp = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<Controller_P>();
-
-        PauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         GameOverMenu = GameObject.FindGameObjectWithTag("GameOverMenu");
-            
-        PauseMenu.SetActive(false);
+
         GameOverMenu.SetActive(false);
     }
 
@@ -24,55 +19,45 @@ public class HudManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.P))
         {
-            ActivationPauseMenu();
-        }
-        
-        if (Input.GetKey(KeyCode.O))
-        {
-            SceneManager.LoadScene("MainScene");
-        }
-        
-        if (Input.GetKey(KeyCode.L))
-        {
             ActivationGameOverMenu();
         }
 
 
     }
-    public void desactivationPauseMenu(ref int controllerparameter)
-    {
-        if (controllerparameter == 0)
-        {
-            PauseMenu.SetActive(false);
-            Time.timeScale = 1.0f;
-        }
-        
-    }
 
-    public void ActivationPauseMenu()
-    {
-        PauseMenu.SetActive(true);
-        controllerp.InicializedCP();
-        Time.timeScale = 0.0f;
-    }
 
     public void ActivationGameOverMenu()
     {
 
         GameOverMenu.SetActive(true);
         controller_Go.InicializedControllerGo();
+        Time.timeScale = 0.0f;
     }
 
     public void ActionGameOverMenu(ref int controllerparameter)
     {
-            if (controllerparameter == 0)
-            {
-                SceneManager.LoadScene("UIScene");
-            }
-            
-            if (controllerparameter == 1)
-            {
-                SceneManager.LoadScene("MainScene");
-            }
+        if (controllerparameter == 0)
+        {
+            SceneManager.LoadScene("UIScene");
+            Time.timeScale = 1.0f;
+        }
+
+        if (controllerparameter == 1)
+        {
+            SceneManager.LoadScene("MainScene");
+            Time.timeScale = 1.0f;
+        }
+
+        if (controllerparameter == 2)
+        {
+            GameOverMenu.SetActive(false);
+            Time.timeScale = 1.0f;
+        }
+    }
+
+    public void StartMainScene()
+    {
+        SceneManager.LoadScene("MainScene");
+
     }
 }
